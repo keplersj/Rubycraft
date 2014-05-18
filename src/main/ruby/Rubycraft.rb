@@ -8,6 +8,8 @@ java_import 'cpw.mods.fml.common.event.FMLPreInitializationEvent'
 java_import 'cpw.mods.fml.common.event.FMLInitializationEvent'
 java_import 'cpw.mods.fml.common.event.FMLPostInitializationEvent'
 
+java_require 'k2b6s9j.Rubycraft.item.ItemRuby'
+
 java_annotation 'Mod(modid = "Rubycraft", name = "Rubycraft", version = "0.1")'
 class Rubycraft
   java_annotation 'EventHandler'
