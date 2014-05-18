@@ -51,14 +51,14 @@ task compileRuby() { task ->
   task.outputs.dir 'build/jruby'
 
   def classes = new File('build/jruby')
-  if (classes.isDirectory()) {
-    println 'The directory build/jruby exists.'
-  }
-  else {
-    classes.mkdirs()
-  }
 
   task.doLast {
+    if (classes.isDirectory()) {
+      println 'The directory build/jruby exists.'
+    }
+    else {
+      classes.mkdirs()
+    }
     runJRuby('jrubyc --java src/main/ruby -t build/jruby')
   }
 }

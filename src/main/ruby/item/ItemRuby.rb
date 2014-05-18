@@ -2,10 +2,8 @@
 
 require 'java'
 
-java_package 'k2b6s9j.Rubycraft.item'
+java_package 'k2b6s9j.rubycraft.item'
 
-java_import 'net.minecraft.item.Item'
-
-class ItemRuby < Item
-  include net.minecraft.item.Item
+class ItemRuby
+  unlocalizedName = "ruby"
 end
