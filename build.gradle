@@ -16,7 +16,7 @@ buildscript {
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:1.2-SNAPSHOT'
-        classpath "org.jruby.embed:jruby-embed:0.1.2"
+        classpath 'org.jruby:jruby:1.7.12'
     }
 }
 
@@ -27,6 +27,7 @@ minecraft {
   version = '1.7.2-10.12.1.1060'
 }
 
+
 /**
   * http://blog.enfranchisedmind.com/2009/10/jruby-cucumber-gradle/
   */
@@ -34,4 +35,21 @@ def runJRuby(cmdArg) {
   Thread.currentThread().setContextClassLoader(JRuby.class.classLoader)
   println "Running JRuby: $cmdArg"
   JRuby.main("-S $cmdArg".split())
+}
+
+task compileRuby() { task ->
+
+  // specify inputs and outputs so gradle can see if its upToDate
+  task.inputs.dir 'src/main/ruby'
+  task.outputs.dir 'build/jruby'
+
+  def classes = new File('build/jruby')
+  if (classes.isDirectory()) {
+    println 'The directory build/jruby exists.'
+  }
+  else {
+    classes.mkdirs()
+  }
+
+  runJRuby('jrubyc --java src/main/ruby -t build/jruby')
 }
