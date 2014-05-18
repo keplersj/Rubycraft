@@ -4,5 +4,8 @@ require 'java'
 
 java_package 'k2b6s9j.Rubycraft.item'
 
-class ItemRuby
+java_import 'net.minecraft.item.Item'
+
+class ItemRuby < Item
+  include net.minecraft.item.Item
 end
