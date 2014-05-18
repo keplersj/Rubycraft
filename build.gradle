@@ -27,6 +27,13 @@ minecraft {
   version = '1.7.2-10.12.1.1060'
 }
 
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'org.jruby:jruby:1.7.12'
+}
 
 /**
   * http://blog.enfranchisedmind.com/2009/10/jruby-cucumber-gradle/
@@ -52,4 +59,14 @@ task compileRuby() { task ->
   }
 
   runJRuby('jrubyc --java src/main/ruby -t build/jruby')
+}
+
+compileJava.dependsOn ':compileRuby'
+
+sourceSets {
+  main {
+    java {
+      srcDir 'build/jruby'
+    }
+  }
 }
