@@ -58,7 +58,9 @@ task compileRuby() { task ->
     classes.mkdirs()
   }
 
-  runJRuby('jrubyc --java src/main/ruby -t build/jruby')
+  task.doLast {
+    runJRuby('jrubyc --java src/main/ruby -t build/jruby')
+  }
 }
 
 compileJava.dependsOn ':compileRuby'
