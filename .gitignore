@@ -1,4 +1,5 @@
 .gradle
 build/
+run/
 
 .DS_Store
