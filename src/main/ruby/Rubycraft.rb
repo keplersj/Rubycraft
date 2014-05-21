@@ -17,8 +17,9 @@ class Rubycraft
   def preInit(event)
 
     itemRuby = @@item.new
-    itemRuby.set_unlocalized_name('ruby')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(itemRuby, 'Ruby')
+    itemRuby.set_unlocalized_name('Rubycraft:ruby')
+    itemRuby.set_texture_name('Rubycraft:ruby')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(itemRuby, 'ruby')
 
     printCopyrightInfo
 
