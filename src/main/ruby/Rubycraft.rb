@@ -10,13 +10,11 @@ java_import 'cpw.mods.fml.common.event.FMLPostInitializationEvent'
 java_annotation 'Mod(modid = "Rubycraft", name = "Rubycraft", version = "0.1")'
 class Rubycraft
 
-  @@item = Java::NetMinecraftItem::Item
-
   java_annotation 'Mod.EventHandler'
   java_signature 'void preInit(FMLPreInitializationEvent)'
   def preInit(event)
 
-    itemRuby = @@item.new
+    itemRuby = Java::NetMinecraftItem::Item.new
     itemRuby.set_unlocalized_name('Rubycraft:ruby')
     itemRuby.set_texture_name('Rubycraft:ruby')
     Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(itemRuby, 'ruby')
