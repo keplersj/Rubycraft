@@ -1,33 +1,24 @@
-require 'raven'
-require 'rake/clean'
+require 'ant'
 
-CLEAN.include('target')
+build_dir = "java_build"
+file build_dir
 
-dependency 'compile_deps' do |t|
-    t.deps << [{'commons-logging' => '1.0.4'}, 'commons-pool']
-    t.deps << ['commons-lang', 'wsdl4j', 'log4j']
+task :setup => build_dir do
+  ant.property :name => "src.dir", :value => "java_src"
+  ant.path(:id => "project.class.path") do
+    pathelement :location => "classes"
+  end
 end
 
-javac 'compile' => 'compile_deps' do |t|
-    t.build_path << "src/main/java"
+task :compile => :setup do
+  ant.javac(:destdir => build_dir) do
+    classpath :refid => "project.class.path"
+    src { pathelement :location => "${src.dir}" }
+  end
 end
 
-jar 'ode-utils.jar' => 'compile'
-
-jar_source 'ode-utils-source.jar' => 'compile'
-
-lib_dir 'prepare_lib' => 'compile_deps' do |t|
-    t.target = 'dist/lib'
+task :jar => :compile do
+  ant.jar :destfile => "simple_compile.jar", :basedir => build_dir
 end
 
-war 'utils.war' => ['compile', 'compile_deps'] do |t|
-    t.webapp_dir = 'src/test'
-end
-
-javadoc 'jdoc' => 'compile_deps'
-
-junit 'test' => ['compile', 'compile_deps']
-
-gem_wrap_inst 'gem' => 'ode-utils.jar' do |t|
-    t.version = '1.0'
-end
+task :default => :jar
