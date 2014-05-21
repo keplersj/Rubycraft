@@ -1,3 +1,6 @@
+build_dir = "java_build"
+file build_dir
+ 
 task :setup => build_dir do
   
 end
