@@ -1,11 +1,8 @@
-box: wercker/ruby
+box: tsungg/jruby@0.0.8
 # Build definition
 build:
   # The steps that will be executed on build
   steps:
     - script:
-        name: install jruby
-        code: rvm install jruby
-    - script:
         name: run rake
-        code: rake
+        code: jruby -S rake
