@@ -18,6 +18,14 @@ class Rubycraft
     itemRuby.set_unlocalized_name('Rubycraft:ruby')
     itemRuby.set_texture_name('Rubycraft:ruby')
     Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(itemRuby, 'ruby')
+    
+    rubySword = Java::NetMinecraftItem::ItemSword.new
+    
+    rubyPickaxe = Java::NetMinecraftItem::ItemPickaxe.new
+    
+    rubySpade = Java::NetMinecraftItem::ItemSpade.new
+    
+    rubyAxe = Java::NetMinecraftItem::ItemAxe.new
 
     printCopyrightInfo
 
