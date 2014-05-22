@@ -38,6 +38,12 @@ class Rubycraft
     rubyAxe.set_unlocalized_name('Rubycraft:ruby_axe')
     rubyAxe.set_texture_name('Rubycraft:ruby_axe')
     Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(rubyAxe, 'ruby_spade')
+    
+    #Dirty Hoe
+    rubyHoe = Java::NewMinecraftItem::ItemHoe.new
+    rubyHoe.set_unlocalized_name('Rubycraft:ruby_hoe')
+    rubyHoe.set_texture_name('Rubycraft:ruby_hoe')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(rubyHoe, 'ruby_hoe')
 
     printCopyrightInfo
 
