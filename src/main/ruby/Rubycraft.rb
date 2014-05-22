@@ -20,12 +20,24 @@ class Rubycraft
     Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(itemRuby, 'ruby')
     
     rubySword = Java::NetMinecraftItem::ItemSword.new
+    rubySword.set_unlocalized_name('Rubycraft:ruby_sword')
+    rubySword.set_texture_name('Rubycraft:ruby_sword')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(rubySword, 'ruby_sword')
     
     rubyPickaxe = Java::NetMinecraftItem::ItemPickaxe.new
+    rubyPickaxe.set_unlocalized_name('Rubycraft:ruby_pickaxe')
+    rubyPickaxe.set_texture_name('Rubycraft:ruby_pickaxe')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(rubyPickaxe, 'ruby_pickaxe')
     
     rubySpade = Java::NetMinecraftItem::ItemSpade.new
+    rubySpade.set_unlocalized_name('Rubycraft:ruby_spade')
+    rubySpade.set_texture_name('Rubycraft:ruby_spade')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(rubySpade, 'ruby_spade')
     
     rubyAxe = Java::NetMinecraftItem::ItemAxe.new
+    rubyAxe.set_unlocalized_name('Rubycraft:ruby_axe')
+    rubyAxe.set_texture_name('Rubycraft:ruby_axe')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(rubyAxe, 'ruby_spade')
 
     printCopyrightInfo
 
