@@ -3,14 +3,12 @@ box: tsungg/jruby
 build:
   # The steps that will be executed on build
   steps:
-    - scripts:
+    - script:
       name: install ant
       code: sudo apt-get install ant ant-contrib ivy ivy-doc -y -qq
-  steps:
     - script:
       name: download the jbundler gem
       code: jruby -S gem install jbundler
-  steps:
     - script:
-        name: run the default task
-        code: jruby -S rake
+      name: run the default task
+      code: jruby -S rake
