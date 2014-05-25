@@ -14,7 +14,7 @@ build:
         code: jruby -S bundle install
     - script:
         name: use jbundle for maven dependencies
-        code: juby -S jbundle install
+        code: jruby -S jbundle install
     - script:
         name: run the default task
         code: jruby -S rake
