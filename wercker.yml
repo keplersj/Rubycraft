@@ -10,8 +10,11 @@ build:
           sudo apt-get update
           sudo apt-get install ant ant-contrib ivy ivy-doc -y -qq
     - script:
-        name: download the jbundler gem
-        code: jruby -S sudo gem install jbundler
+        name: use bundler for dependencies
+        code: jruby -S bundle install
+    - script:
+        name: use jbundle for maven dependencies
+        code: juby -S jbundle install
     - script:
         name: run the default task
         code: jruby -S rake
