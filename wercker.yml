@@ -5,7 +5,10 @@ build:
   steps:
     - script:
         name: install ant
-        code: sudo apt-get install ant ant-contrib ivy ivy-doc -y -qq
+        code: |
+          sudo add-apt-repository ppa:webupd8team/java -y
+          sudo apt-get update
+          sudo apt-get install ant ant-contrib ivy ivy-doc -y -qq
     - script:
         name: download the jbundler gem
         code: jruby -S gem install jbundler
