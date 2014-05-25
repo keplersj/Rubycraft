@@ -1,5 +1,8 @@
-.gradle
-build/
-run/
-
 .DS_Store
+
+build/
+dist/
+
+.lock
+
+.jbundler
