@@ -1,27 +1,56 @@
-desc 'Generate the JAR files typically generated in a Minecraft project.'
-task :default => [:jar]
+require 'ant'
+require 'jbundler'
+require 'rake/clean'
 
-desc 'Download and setup the files needed for the project to operate correctly.'
+CLEAN
+CLEAN.class
+
+CLOBBER
+CLOBBER.class
+
+PROJECT_NAME = 'Rubycraft'
+
+MAIN_SRC_DIR = 'mod'
+
+BUILD_DIR = 'build'
+CLEAN << BUILD_DIR
+
+DIST_DIR = "dist"
+CLOBBER << DIST_DIR
+
+COMPILE_DIR = "#{BUILD_DIR}/compile"
+CLASSES_DIR = "#{COMPILE_DIR}/classes"
+
+desc 'Generate the artifacts files typically generated in a Minecraft project.'
+task :default => [:clean, :clobber, :make_jars]
+
 task :setup do
-  directory "build"
+  ant.path :id => 'classpath' do
+    fileset :dir => COMPILE_DIR
+    fileset :dir => JBUNDLER_CLASSPATH
+  end
+
+  mkdir BUILD_DIR
+  mkdir DIST_DIR
+  mkdir COMPILE_DIR
+  mkdir CLASSES_DIR
 end
 
-desc 'Setup the environment in preperation of compilation tasks.'
-task :setupCompile => :setup do
-  directory "build/jruby_source"
+task :make_jars => :setup do
+  compile_jruby(MAIN_SRC_DIR)
+  make_jar CLASSES_DIR, "#{PROJECT_NAME}-deobf.jar"
 end
 
-desc 'Compile the JRuby down to their Java source files equivilants.'
-task :compile => [:setupCompile] do
-  sh "jruby -S jrubyc --java mod -t build/jruby_source"
+def compile_jruby(source_directory)
+  sh "jruby -S jrubyc #{source_directory} -t #{CLASSES_DIR}"
 end
 
-desc 'Delete compilation artifacts.'
-task :cleanCompile do
-  rm_rf "build/jruby"
+def compile_java(source_folder)
+  ant.javac :srcdir => source_folder, :destdir => CLASSES_DIR, :classpathref => 'classpath',
+            :source => "1.6", :target => "1.6", :debug => "yes", :includeantruntime => "no"
 end
 
-desc 'Create a deobfuscated JAR file for the project, given the source files and resources collected.'
-task :jar => :compile do
-
+def make_jar(files_to_be_archieved, jar_file_name)
+  ant.jar :jarfile => "#{DIST_DIR}/#{jar_file_name}", :basedir => files_to_be_archieved
+  puts
 end

@@ -1,8 +1,16 @@
-box: tsungg/jruby@0.0.8
+box: tsungg/jruby
 # Build definition
 build:
   # The steps that will be executed on build
   steps:
     - script:
-        name: run rake
+      name: download the jbundler gem
+      code: jruby -S gem install jbundler
+  steps:
+    - script:
+      name: download the rave gem
+      code: jruby -S gem install gem
+  steps:
+    - script:
+        name: run the default task
         code: jruby -S rake
