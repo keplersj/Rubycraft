@@ -12,7 +12,7 @@ task :setupCompile => :setup do
 end
 
 desc 'Compile the JRuby down to their Java source files equivilants.'
-task :compile => [:setupCompile, :cleanCompile] do
+task :compile => [:cleanCompile, :setupCompile] do
   sh "jruby -S jrubyc --java mod -t build/jruby_source"
 end
 
