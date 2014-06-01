@@ -8,43 +8,38 @@ java_import 'cpw.mods.fml.common.event.FMLInitializationEvent'
 java_import 'cpw.mods.fml.common.event.FMLPostInitializationEvent'
 
 java_annotation 'Mod(modid = "Rubycraft", name = "Rubycraft", version = "0.1")'
-class Rubycraft
+module Rubycraft
 
-  @@itemRuby = Java::NetMinecraftItem::Item.new
-  @@rubySword = Java::NetMinecraftItem::Item.new
-  @@rubyPickaxe = Java::NetMinecraftItem::Item.new
-  @@rubySpade = Java::NetMinecraftItem::Item.new
-  @@rubyAxe = Java::NetMinecraftItem::Item.new
-  #Dirty Hoe
-  @@rubyHoe = Java::NetMinecraftItem::Item.new
+  autoload :Item, 'rubycraft/items'
+  autoload :Block, 'rubycraft/blocks'
 
   java_annotation 'Mod.EventHandler'
   java_signature 'void preInit(FMLPreInitializationEvent)'
   def preInit(event)
 
-    @@itemRuby.set_unlocalized_name('Rubycraft:ruby')
-    @@itemRuby.set_texture_name('Rubycraft:ruby')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(@@itemRuby, 'ruby')
+    Item::Ruby::Gem.set_unlocalized_name('Rubycraft:ruby')
+    Item::Ruby::Gem.set_texture_name('Rubycraft:ruby')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(Item::Ruby::Gem, 'ruby')
 
-    @@rubySword.set_unlocalized_name('Rubycraft:ruby_sword')
-    @@rubySword.set_texture_name('Rubycraft:ruby_sword')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(@@rubySword, 'ruby_sword')
+    Item::Ruby::Sword.set_unlocalized_name('Rubycraft:ruby_sword')
+    Item::Ruby::Sword.set_texture_name('Rubycraft:ruby_sword')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(Item::Ruby::Sword, 'ruby_sword')
 
-    @@rubyPickaxe.set_unlocalized_name('Rubycraft:ruby_pickaxe')
-    @@rubyPickaxe.set_texture_name('Rubycraft:ruby_pickaxe')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(@@rubyPickaxe, 'ruby_pickaxe')
+    Item::Ruby::Pickaxe.set_unlocalized_name('Rubycraft:ruby_pickaxe')
+    Item::Ruby::Pickaxe.set_texture_name('Rubycraft:ruby_pickaxe')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(Item::Ruby::Pickaxe, 'ruby_pickaxe')
 
-    @@rubySpade.set_unlocalized_name('Rubycraft:ruby_spade')
-    @@rubySpade.set_texture_name('Rubycraft:ruby_spade')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(@@rubySpade, 'ruby_spade')
+    Item::Ruby::Spade.set_unlocalized_name('Rubycraft:ruby_spade')
+    Item::Ruby::Spade.set_texture_name('Rubycraft:ruby_spade')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(Item::Ruby::Spade, 'ruby_spade')
 
-    @@rubyAxe.set_unlocalized_name('Rubycraft:ruby_axe')
-    @@rubyAxe.set_texture_name('Rubycraft:ruby_axe')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(@@rubyAxe, 'ruby_axe')
+    Item::Ruby::Axe.set_unlocalized_name('Rubycraft:ruby_axe')
+    Item::Ruby::Axe.set_texture_name('Rubycraft:ruby_axe')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(Item::Ruby::Axe, 'ruby_axe')
 
-    @@rubyHoe.set_unlocalized_name('Rubycraft:ruby_hoe')
-    @@rubyHoe.set_texture_name('Rubycraft:ruby_hoe')
-    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(@@rubyHoe, 'ruby_hoe')
+    Item::Ruby::Hoe.set_unlocalized_name('Rubycraft:ruby_hoe')
+    Item::Ruby::Hoe.set_texture_name('Rubycraft:ruby_hoe')
+    Java::CpwModsFmlCommonRegistry::GameRegistry.register_item(Item::Ruby::Hoe, 'ruby_hoe')
 
     printCopyrightInfo
 
