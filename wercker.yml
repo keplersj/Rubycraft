@@ -4,12 +4,6 @@ build:
   # The steps that will be executed on build
   steps:
     - script:
-        name: install ant
-        code: |
-          sudo add-apt-repository ppa:webupd8team/java -y
-          sudo apt-get update
-          sudo apt-get install ant ant-contrib ivy ivy-doc -y -qq
-    - script:
         name: use bundler for dependencies
         code: jruby -S bundle install
     - script:
