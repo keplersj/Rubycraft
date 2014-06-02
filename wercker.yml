@@ -17,4 +17,4 @@ build:
         code: jruby -S jbundle install
     - script:
         name: run the default task
-        code: jruby -S rake :rawr:jar
+        code: jruby -S rake :rawr:jar --trace
