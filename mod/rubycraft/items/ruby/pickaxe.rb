@@ -1,4 +1,4 @@
 require 'java'
 
-class Pickaxe < Java::NetMinecraftItem::Item
+class Rubycraft::Items::Ruby::Pickaxe < Java::NetMinecraftItem::Item
 end
