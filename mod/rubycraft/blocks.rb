@@ -1,2 +1,2 @@
-module Blocks
+module Rubycraft::Blocks
 end
