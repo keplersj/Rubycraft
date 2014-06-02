@@ -1,4 +1,4 @@
 require 'java'
 
-class Sword < Java::NetMinecraftItem::Item
+class Rubycraft::Items::Ruby::Sword < Java::NetMinecraftItem::Item
 end
