@@ -1,4 +1,4 @@
 require 'java'
 
-class Gem < Java::NetMinecraftItem::Item
+class Rubycraft::Items::Ruby::Gem < Java::NetMinecraftItem::Item
 end
