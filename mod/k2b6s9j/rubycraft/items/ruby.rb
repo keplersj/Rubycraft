@@ -1,3 +1,7 @@
+require 'java'
+
+java_package 'k2b6s9j.rubycraft.items'
+
 module Rubycraft::Items::Ruby
 
   autoload :Axe, 'ruby/axe'

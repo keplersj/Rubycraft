@@ -1,2 +1,0 @@
-module Rubycraft::Blocks
-end

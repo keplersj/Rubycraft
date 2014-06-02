@@ -10,8 +10,8 @@ java_import 'cpw.mods.fml.common.event.FMLPostInitializationEvent'
 java_annotation 'Mod(modid = "Rubycraft", name = "Rubycraft", version = "0.1")'
 module Rubycraft
 
-  autoload :Items, 'rubycraft/items'
-  autoload :Blocks, 'rubycraft/blocks'
+  autoload :Items, 'items'
+  autoload :Blocks, 'blocks'
 
   java_annotation 'Mod.EventHandler'
   java_signature 'void preInit(FMLPreInitializationEvent)'
