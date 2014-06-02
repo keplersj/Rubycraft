@@ -1,4 +1,4 @@
 require 'java'
 
-class Axe < Java::NetMinecraftItem::Item
+class Rubycraft::Items::Ruby::Axe < Java::NetMinecraftItem::Item
 end
