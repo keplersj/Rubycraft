@@ -1,4 +1,4 @@
-module Ruby
+module Rubycraft::Items::Ruby
 
   autoload :Axe, 'ruby/axe'
   autoload :Gem, 'ruby/gem'
