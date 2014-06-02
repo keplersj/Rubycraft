@@ -1,4 +1,4 @@
 require 'java'
 
-class Spade < Java::NetMinecraftItem::Item
+class Rubycraft::Items::Ruby::Spade < Java::NetMinecraftItem::Item
 end
