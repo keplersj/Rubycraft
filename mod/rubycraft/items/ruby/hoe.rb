@@ -1,4 +1,4 @@
 require 'java'
 
-class Hoe < Java::NetMinecraftItem::Item
+class Rubycraft::Items::Ruby::Hoe < Java::NetMinecraftItem::Item
 end
