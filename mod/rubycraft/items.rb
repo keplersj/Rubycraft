@@ -1,4 +1,4 @@
-module Items
+module Rubycraft::Items
 
   autoload :Ruby, 'items/ruby'
 
