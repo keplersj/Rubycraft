@@ -1,7 +1,4 @@
 source 'https://rubygems.org'
 
 gem 'jbundler'
-
-source 'http://gems.neurogami.com'
-
-gem 'rawr'
+gem "rawr", :git => "git://github.com/rawr/rawr.git"
